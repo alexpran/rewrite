@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<f:view contentType="text/html" encoding="UTF-8"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<h:outputText escape="false"
+		value="&lt;!--[if lt IE 7 ]&gt; &lt;html class='ie ie6' lang='it'&gt; &lt;![endif]--&gt;" />
+	<h:outputText escape="false"
+		value="&lt;!--[if IE 7 ]&gt; &lt;html class='ie ie7' lang='it'&gt; &lt;![endif]--&gt;" />
+	<h:outputText escape="false"
+		value="&lt;!--[if IE 8 ]&gt; &lt;html class='ie ie8' lang='it'&gt; &lt;![endif]--&gt;" />
+
+	<h:outputText escape="false"
+		value="&lt;!--[if (gte IE 9)|!(IE)]&gt;&lt;!--&gt;" />
+	<html lang="it">
+<h:outputText escape="false" value="&lt;!--&lt;![endif]--&gt;" />
+
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Rewrite</title>
+</h:head>
+<h:body>
+	<h:outputText value="benvenuto index"></h:outputText>
+	<br />
+	<h:outputText value="#{simpleController.name}" />
+	<br />
+	<h:form>
+		<h:commandLink action="/ciao?faces-redirect=true"
+			value="vai a  ciao con redirect NON VA" />
+		<br />
+		<h:commandLink action="/ciao" value="vai a ciao senza redirect NON VA" />
+		<br />
+		<h:commandLink action="/cache/ciao?faces-redirect=true"
+			value="vai a  ciao con redirect" />
+		<br />
+		<h:commandLink action="/cache/ciao" value="vai a ciao senza redirect" />
+		<br />
+		<a href="/rewrite/proviamo/il/form">prova form</a>
+		<br />
+		<a href="/rewrite/proviamo/il/params?name=PIPPO">params?name=PIPPO</a>
+		<br />
+		<a href="/rewrite/proviamo/il/params?name=PLUTO">params?name=PLUTO</a>
+		<br />
+		<h:commandLink action="#{simpleController.goToCiao}"
+			value="vai ciao senza redirect " />
+		<br />
+		<h:commandLink action="#{simpleController.goToCiaoRedirect}"
+			value="vai ciao con redirect" />
+
+	</h:form>
+
+</h:body>
+	</html>
+</f:view>
